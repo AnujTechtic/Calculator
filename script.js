@@ -1,37 +1,64 @@
-let displayValue = '';
+let displayValue = '0';
 const default_operators = ['+' , '-', '*','/']
-
+flag = true;
+let currentfontsize = 4;
 /* Function to update the display on each turn */
 function updatedisplay() {
     document.getElementById('display').value = displayValue;
+    if(displayValue.length >= 18){
+        currentfontsize-= 0.175;
+        document.getElementById('display').style.fontSize = currentfontsize + 'rem';
+    }
 }
 
 /* Function to display the number button pressed by the user on inputbox*/
-function showvalue(value) {
-    displayValue += value;
+function showvalue(value) {    
+    if (displayValue == '0') {
+        displayValue = value;
+    }
+    else{
+        displayValue += value;
+        
+    }
     updatedisplay();
 }
 
 /* Function to read the value in input box*/
 function readvalue(){
     displayValue= document.getElementById('display').value;
+    
 }
-
+function braces() {
+    if (flag) {
+        setoperator("(")
+        flag = false;    
+    }
+    else{
+        setoperator(")")
+        flag = true;
+    }
+}
 /* Function to display the operator on user screen*/
 function setoperator(operator) {
-    displayValue += `${operator}`;
+    if (displayValue == '0') {
+        displayValue = `${operator}`;
+    }
+    else{
+        displayValue += `${operator}`;
+    }
     updatedisplay();
 }
 
 /* Function to clear the values of input screen*/
 function cleardisplay() {
-    displayValue = '';
+    displayValue = 0;
+    currentfontsize = 4;    
     updatedisplay();
 }
 
 /* Function to perform calculation each time user presses = */
 function calculateresult() {
-    const result = evaluateexpression(displayValue);
+    const result = parseFloat(evaluateexpression(displayValue));
     displayValue = result;
     updatedisplay();
 }
@@ -50,7 +77,7 @@ function evaluateexpression(expression) {
             while (i < tokens.length && tokens[i] >= '0' && tokens[i] <= '9') { 
                 ones_place = ones_place + tokens[i++];
             }
-            values.push(parseInt(ones_place, 10));
+            values.push(parseFloat(ones_place, 10));
             i--;
         }
         else if (tokens[i] == '(') {
@@ -100,6 +127,27 @@ function applyOp(op, b, a){
             {
                 return "Error"
             }
-            return parseInt(a / b, 10);
+            return parseFloat(a / b, 10);
     }
 }
+function changefontsize() {
+    var myInput =  document.getElementById('display');
+    if(isOverflown(myInput)) {
+      while (isOverflown(myInput)){
+      currentfontsize--;
+      myInput.style.fontSize = currentfontsize + 'px';
+      }
+    }else {
+      currentfontsize = 13;
+      myInput.style.fontSize = currentfontsize + 'px';
+      while (isOverflown(myInput)){
+      currentfontsize--;
+      myInput.style.fontSize = currentfontsize + 'px';
+      }
+    }	
+  }
+  
+  function isOverflown(element) {
+      return element.scrollWidth > element.clientWidth;
+  }
+window.onload = updatedisplay();
