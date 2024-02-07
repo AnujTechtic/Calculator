@@ -8,40 +8,30 @@
 </head>
 <body>
     <h1>Calculator</h1>
-    <div class="main">
-        <label>Input</label>
-        <input type="text" id="display">
-            <table>            
-                <tr>
-                    <td><button onclick="setoperator('(')" onkeypress="readvalues(event)">(</button></td>
-                    <td><button onclick="setoperator(')')" onkeypress="readvalues(event)">)</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="setoperator('+')" onkeypress="readvalues(event)">+</button></td>
-                    <td><button onclick="setoperator('-')" onkeypress="readvalues(event)">-</button></td>
-                    <td><button onclick="setoperator('*')" onkeypress="readvalues(event)">*</button></td>
-                    <td><button onclick="setoperator('/')" onkeypress="readvalues(event)">/</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="showvalue(9)" onkeypress="readvalues(event)">9</button></td>
-                    <td><button onclick="showvalue(8)" onkeypress="readvalues(event)">8</button></td>
-                    <td><button onclick="showvalue(7)" onkeypress="readvalues(event)">7</button></td>
-                    <td><button onclick="readvalue();calculateresult();">=</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="showvalue(6)" onkeypress="readvalues(event)">6</button></td>
-                    <td><button onclick="showvalue(5)" onkeypress="readvalues(event)">5</button></td>
-                    <td><button onclick="showvalue(4)" onkeypress="readvalues(event)">4</button></td>
-                    <td><button onclick="cleardisplay()">C</button></td>
-                </tr>
-                <tr>
-                    <td><button onclick="showvalue(3)" onkeypress="readvalues(event)">3</button></td>
-                    <td><button onclick="showvalue(2)" onkeypress="readvalues(event)">2</button></td>
-                    <td><button onclick="showvalue(1)" onkeypress="readvalues(event)">1</button></td>
-                    <td><button onclick="showvalue(0)" onkeypress="readvalues(event)">0</button></td>
-                </tr>
-            </table>
-    </div>
+    <div class="calculator-card">
+        <!-- <label>Input</label> -->
+        <input type="text" id="display" class="calculator-screen z-depth-1">
+        <div class="calculator-keys">
+            <button type="button" class="operator btn btn-info" onclick="setoperator('+')" onkeypress="readvalues(event) && changefontsize()" onchange="changefontsize();">+</button>
+            <button type="button" class="operator btn btn-info" onclick="setoperator('-')" onkeypress="readvalues(event)">-</button>
+            <button type="button" class="operator btn btn-info" onclick="setoperator('*')" onkeypress="readvalues(event)">&times;</button>
+            <button type="button" class="operator btn btn-info" onclick="setoperator('/')" onkeypress="readvalues(event)">&divide;</button>
+            <button type="button" class="btn btn-light waves-effect" onclick="showvalue('7')" onkeypress="readvalues(event) && changefontsize();" onchange="changefontsize();">7</button>
+            <button type="button" class="btn btn-light waves-effect" onclick="showvalue('8')" onkeypress="readvalues(event)">8</button>
+            <button type="button" class="btn btn-light waves-effect" onclick="showvalue('9')" onkeypress="readvalues(event)">9</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('4')" onkeypress="readvalues(event)">4</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('5')" onkeypress="readvalues(event)">5</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('6')" onkeypress="readvalues(event)">6</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('1')" onkeypress="readvalues(event)">1</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('2')" onkeypress="readvalues(event)">2</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('3')" onkeypress="readvalues(event)">3</button>
+            <button type="button" class="btn btn-light waves-effect"  onclick="showvalue('0')" onkeypress="readvalues(event)">0</button>
+            <button type="button" class="all-clear function btn btn-danger btn-sm" value="all-clear" onclick="cleardisplay()">C</button>
+            <button type="button" class="operator btn btn-info" onclick="braces();" onkeypress="readvalues(event)">()</button>
+            <button type="button" class="equal-sign operator btn btn-default" onclick="readvalue();calculateresult();">=</button>
+        </div>
+    </div>          
+            
 </body>
 <script src="script.js"></script>
 </html>
