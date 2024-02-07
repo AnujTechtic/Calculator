@@ -1,21 +1,89 @@
-body{
-    justify-content: center;
-    align-items: center;
-    margin: 100px;
-    width: 0;
-}
-.main{
-    text-align: center;
-}
-button{
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-}
-table{
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  h1{
+      text-align: center;
+      margin-top: 50px;
+      font-size: xx-large;
+  }
+  
+  /* *,
+  *::before,
+  *::after  */
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+  }
+  /* body{
+      margin-left: auto;
+      margin-right: auto;
+  } */
+  
+  .calculator {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 400px;
+  }
+  
+  .calculator-screen {
+    width: 95%;
+    height: 80px;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* border-left: none;
+    border-right: none; */
+    background-color: #cccccce9;
+    color: black;
+    /* border-right: none; */
+    text-align: right;
     margin-top: 10px;
-}
-input{
-    width: 207px;
-    height: 30px;
-}
+    margin-left: 10px;
+    margin-right: auto;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 4rem;
+  }
+  
+  button {
+    height: 60px;
+    font-size: 2rem!important;
+    border-radius: 10px;
+  }
+  button:hover{
+    background-color: lightblue;
+  }
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+  
+  .equal-sign {
+    height: 98%;
+    grid-area: 2 / 4 / 6 / 5;
+  }
+  
+  .calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+  }
+  
+  .calculator-card{
+      width: 450px;
+      height: 500px;
+      margin: 50px auto;
+      border-radius: 20px;
+      box-shadow: 5px 20px 50px #000;
+      background-color: blanchedalmond;
+  }
+  
+  /* input{
+      border-radius: 20px;
+      
+  } */
