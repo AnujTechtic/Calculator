@@ -10,7 +10,7 @@ document.getElementById('display').addEventListener('keydown', (event) => {
   });
 /* Function to update the display on each turn */
 function updatedisplay() {
-    document.getElementById('display').value = displayValue;
+    document.getElementById('display').value = displayValue
     if(displayValue.length >= 18){
         currentfontsize-= 0.175;
         document.getElementById('display').style.fontSize = currentfontsize + 'rem';
@@ -62,7 +62,7 @@ function setoperator(operator) {
 
 /* Function to clear the values of input screen*/
 function cleardisplay() {
-    displayValue = 0;
+    displayValue = '0';
     currentfontsize = 4;    
     updatedisplay();
 }
@@ -70,7 +70,8 @@ function cleardisplay() {
 /* Function to perform calculation each time user presses = */
 function calculateresult() {
     const result = parseFloat(evaluateexpression(displayValue));
-    displayValue = result;
+    displayValue = isNaN(result)? "Error" : result;
+    
     updatedisplay();
 }
 
