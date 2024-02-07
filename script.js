@@ -2,6 +2,12 @@ let displayValue = '0';
 const default_operators = ['+' , '-', '*','/']
 flag = true;
 let currentfontsize = 4;
+document.getElementById('display').addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+      readvalue();
+      calculateresult();
+    }
+  });
 /* Function to update the display on each turn */
 function updatedisplay() {
     document.getElementById('display').value = displayValue;
@@ -26,6 +32,11 @@ function showvalue(value) {
 /* Function to read the value in input box*/
 function readvalue(){
     displayValue= document.getElementById('display').value;
+    // displayValue.addEventListener('keydown', (event) => {
+    //     if (event.key === 'Enter') {
+    //       calculateresult();
+    //     }
+    //   });
     
 }
 function braces() {
@@ -146,8 +157,9 @@ function changefontsize() {
       }
     }	
   }
-  
-  function isOverflown(element) {
+ 
+function isOverflown(element) {
       return element.scrollWidth > element.clientWidth;
   }
+
 window.onload = updatedisplay();
